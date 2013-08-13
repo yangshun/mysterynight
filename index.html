@@ -30,24 +30,24 @@
             <h2>The Oracle</h2>
             <div class="number-row">
                 <div class="column">
-                    <div class="up-arrow"><i class="icon-sort-up icon-4x"></i></div>
-                    <p id="num-1">0</p>
-                    <div class="down-arrow"><i class="icon-sort-down icon-4x"></i></div>
+                    <div class="up-arrow"><i class="icon-sort-up icon-3x"></i></div>
+                    <p class="number" id="num-1">0</p>
+                    <div class="down-arrow"><i class="icon-sort-down icon-3x"></i></div>
                 </div>
                 <div class="column">
-                    <div class="up-arrow"><i class="icon-sort-up icon-4x"></i></div>
-                    <p id="num-2">0</p>
-                    <div class="down-arrow"><i class="icon-sort-down icon-4x"></i></div>
+                    <div class="up-arrow"><i class="icon-sort-up icon-3x"></i></div>
+                    <p class="number" id="num-2">0</p>
+                    <div class="down-arrow"><i class="icon-sort-down icon-3x"></i></div>
                 </div>
                 <div class="column">
-                    <div class="up-arrow"><i class="icon-sort-up icon-4x"></i></div>
-                    <p id="num-3">0</p>
-                    <div class="down-arrow"><i class="icon-sort-down icon-4x"></i></div>
+                    <div class="up-arrow"><i class="icon-sort-up icon-3x"></i></div>
+                    <p class="number" id="num-3">0</p>
+                    <div class="down-arrow"><i class="icon-sort-down icon-3x"></i></div>
                 </div>
                 <div class="column">
-                    <div class="up-arrow"><i class="icon-sort-up icon-4x"></i></div>
-                    <p id="num-4">0</p>
-                    <div class="down-arrow"><i class="icon-sort-down icon-4x"></i></div>
+                    <div class="up-arrow"><i class="icon-sort-up icon-3x"></i></div>
+                    <p class="number" id="num-4">0</p>
+                    <div class="down-arrow"><i class="icon-sort-down icon-3x"></i></div>
                 </div>
             </div>
             <div class="button-container">
@@ -88,6 +88,7 @@
             function submit() {
                 var answer = $('#num-1').text() + $('#num-2').text() + $('#num-3').text() + $('#num-4').text();
                 var message;
+                var error = false;
                 switch(answer.toString()) {
                     case '2359':
                         message = 'King Umbra\'s real name is <br/><br/><span class="susan-name">Ms Susan...</span>';
@@ -100,10 +101,13 @@
                         break;
                     default:
                         message = 'Wrong...!';
+                        error = true;
+                        break;
                 }
                 $('.message').html(message);
                 $('.main').fadeOut(500, function() {
                     $('.overlay').fadeIn(1000, function() {
+                        if (error) $('.number').text(0);
                         $('.overlay').fadeOut(1000, function() {
                             $('.main').fadeIn(500);
                         });
