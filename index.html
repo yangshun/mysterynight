@@ -68,15 +68,16 @@
                 $('.column').each(function() {
                     
                     var $p = $(this).find('p');
-                    var value = parseInt($p.text());
                     var $up = $(this).find('.up-arrow');
                     $up.click(function() {
+                        var value = parseInt($p.text());
                         value++;
                         value %= 10;
                         $p.text(value);
                     });
                     var $down = $(this).find('.down-arrow');
                     $down.click(function() {
+                        var value = parseInt($p.text());
                         value--;
                         value += 10;
                         value %= 10;
@@ -98,6 +99,9 @@
                         break;
                     case '0109':
                         message = 'The moon is especially bright and round on this fateful night...';
+                        break;
+                    case '2013':
+                        message = 'Yes, it is 2013 this year...';
                         break;
                     default:
                         message = 'Wrong...!';
